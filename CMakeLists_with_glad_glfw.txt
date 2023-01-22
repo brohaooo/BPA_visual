@@ -1,0 +1,30 @@
+cmake_minimum_required(VERSION 3.0)
+
+project(BPA_visual)
+
+set(CMAKE_CXX_STANDARD 17)
+
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_subdirectory(./glfw-3.3.8)
+
+include_directories(./)
+include_directories(./glad/include)
+include_directories(./stb_image)
+include_directories(./learnopengl)
+
+set(HEADERS
+        BPA/BallPivotingAlgorithm.h
+        rply/rply.h)
+
+set(SOURCES
+	main.cpp
+	glad/src/glad.c
+        	BPA/BallPivotingAlgorithm.cpp
+	rply/rply.c
+        )
+
+add_executable(BPA_visual ${HEADERS} ${SOURCES})
+
+target_link_libraries(BPA_visual PUBLIC glfw)
+
